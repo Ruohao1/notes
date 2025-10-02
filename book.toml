@@ -3,3 +3,6 @@ authors = ["ruohao"]
 language = "en"
 src = "src"
 title = "Notes"
+
+[build]
+build-dir = "docs"
