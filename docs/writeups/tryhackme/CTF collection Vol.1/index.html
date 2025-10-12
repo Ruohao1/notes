@@ -233,6 +233,69 @@ printf '\x89\x50\x4E\x47' | dd of=fixed.png bs=1 seek=0 count=4 conv=notrunc
 <img src="images/reddit.png" alt="" /></p>
 <h2 id="task-13"><a class="header" href="#task-13">Task 13</a></h2>
 <p><img src="brainfuck.png" alt="" /></p>
+<h2 id="task-14"><a class="header" href="#task-14">Task 14</a></h2>
+<pre><code class="language-python">s1 = bytes.fromhex("44585d6b2368737c65252166234f20626d")
+pt = bytes(b ^ 0x10 for b in s1)
+print(pt.decode())
+</code></pre>
+<h2 id="task-15"><a class="header" href="#task-15">Task 15</a></h2>
+<pre><code class="language-bash">binwalk hell_1578018688126.jpg -e
+cd _hell_1578018688127.jpg.extracted
+cat hello_there.txt
+Thank you for extracting me, you are the best!
+
+THM{y0u_w4lk_m3_0u7}
+</code></pre>
+<h2 id="task-16"><a class="header" href="#task-16">Task 16</a></h2>
+<pre><code class="language-python">import numpy as np
+from PIL import Image
+
+img = np.array(Image.open("dark.png"))
+lsb = img &amp; 1  # keep only least significant bit
+Image.fromarray((lsb[:,:,0]*255).astype(np.uint8)).save("lsb_r.png")
+Image.fromarray((lsb[:,:,1]*255).astype(np.uint8)).save("lsb_g.png")
+Image.fromarray((lsb[:,:,2]*255).astype(np.uint8)).save("lsb_b.png")
+</code></pre>
+<p>lsb_b
+<img src="images/dark.png" alt="" /></p>
+<h2 id="task-17"><a class="header" href="#task-17">Task 17</a></h2>
+<p>Just scan the qr and listen</p>
+<pre><code>THM{SOUNDINGQR}
+</code></pre>
+<h2 id="task-18"><a class="header" href="#task-18">Task 18</a></h2>
+<p>Use wayback machine on 2 jan 2020
+<img src="images/wayback.png" alt="" /></p>
+<h2 id="task-19"><a class="header" href="#task-19">Task 19</a></h2>
+<p><a href="https://github.com/Ruohao1/cypher-cracker">cypher-cracker</a></p>
+<pre><code class="language-bash">$ PYTHONPATH=src/ python -m src.cli --vigenere "MYKAHODTQ{RVG_YVGGK_FAL_WXF}" -k TRYHACKME
+Key provided: TRYHACKME
+Decrypted: THMTHMTHM{YEI_RVEWY_BHU_YQF}
+
+$ PYTHONPATH=src/ python -m src.cli --vigenere "MYKAHODTQ{RVG_YVGGK_FAL_WXF}" -k THM     
+Key provided: THM
+Decrypted: TRYHACKME{YOU_FOUND_THE_KEY}
+</code></pre>
+<h3 id="alternative"><a class="header" href="#alternative">Alternative</a></h3>
+<p>![[vigenere.png]]</p>
+<h2 id="task-20"><a class="header" href="#task-20">Task 20</a></h2>
+<pre><code class="language-bash">python -c 'n=int("581695969015253365094191591547859387620042736036246486373595515576333693");print(n.to_bytes((n.bit_length()+7)//8,"big").decode())'
+
+THM{17_ju57_4n_0rd1n4ry_b4535}
+</code></pre>
+<h2 id="task-21"><a class="header" href="#task-21">Task 21</a></h2>
+<pre><code class="language-bash">$ tshark -r flag_1578026731881.pcapng -Y http.request -T fields -e tcp.stream -e http.request.uri
+27	/
+29	/
+27	/
+27	/
+29	/
+42	/flag.txt
+
+$ tshark -r flag_1578026731881.pcapng -Y "tcp.stream==42 &amp;&amp; tcp" -T fields -e http.file_data | xxd -r -p | strings
+
+THM{d0_n07_574lk_m3}
+Found me!
+</code></pre>
 
                     </main>
 
@@ -263,22 +326,6 @@ printf '\x89\x50\x4E\x47' | dd of=fixed.png bs=1 seek=0 count=4 conv=notrunc
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
