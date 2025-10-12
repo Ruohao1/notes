@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Chapter 1 - Notes</title>
+        <title>Introduction - Ruohao&#x27;s Cyber Notes &amp; Writeups</title>
 
 
         <!-- Custom HTML head -->
@@ -138,7 +138,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">Notes</h1>
+                    <h1 class="menu-title">Ruohao&#x27;s Cyber Notes &amp; Writeups</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -175,13 +175,75 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+                        <!-- --- -->
+<!-- # Keep front-matter minimal; tags here are optional if you use mdbook-tags -->
+<!-- title: "Welcome" -->
+<!-- --- -->
+<!-- Hero / Title -->
+<h1 align="center">🛡️ My Cyber Notebook</h1>
+<p align="center">
+  Notes, references, and CTF writeups — stitched together with curiosity, reproducibility, and a mildly unhealthy love for automation.
+</p>
+<!-- Badges -->
+<p align="center">
+  <a href="https://github.com/Ruohao1"><img alt="GitHub"
+     src="https://img.shields.io/badge/GitHub-Ruohao1-black?logo=github"></a>
+  <a href="https://tryhackme.com/p/ruohao"><img alt="TryHackMe"
+     src="https://img.shields.io/badge/TryHackMe-ruohao-darkred?logo=tryhackme"></a>
+  <a href="https://linkedin.com/in/ruohaolin"><img alt="LinkedIn"
+     src="https://img.shields.io/badge/LinkedIn-ruohaolin-0A66C2?logo=linkedin"></a>
+  <a href="https://ruohao.dev"><img alt="Portfolio"
+     src="https://img.shields.io/badge/Portfolio-ruohao.dev-111111?logo=vercel"></a>
+</p>
+<!-- Quick links / CTA -->
+<p align="center">
+  <a href="./notes/README.html"><b>Browse Notes</b></a> •
+  <a href="./writeups/README.html"><b>See Writeups</b></a> •
+  <a href="./references/README.html"><b>Reference Hub</b></a>
+</p>
+<hr />
+<h2 id="what-this-is"><a class="header" href="#what-this-is">What this is</a></h2>
+<p>This book is a growing collection of <strong>concise notes</strong>, <strong>repeatable configs</strong>, and <strong>step-by-step writeups</strong> from my work in:</p>
+<ul>
+<li>Linux hardening &amp; privesc, network forensics, web exploitation, and reversing.</li>
+<li>My homelab (Proxmox + LXC/Docker, segmented networks, Tailscale, TLS).</li>
+<li>Ansible roles/playbooks for CIS/ANSSI-style hardening and lab automation.</li>
+</ul>
+<p>Where helpful, pages are tagged (e.g., <code>linux</code>, <code>privesc</code>, <code>web</code>, <code>pwn</code>, <code>ansible</code>). If you have <code>mdbook-tags</code> enabled, you’ll get automatic tag indexes under <code>/tags/…</code>.</p>
+<blockquote>
+<p><em>“Document what you break, so you can break it better next time.”</em></p>
+</blockquote>
+<hr />
+<h2 id="structure"><a class="header" href="#structure">Structure</a></h2>
+<ul>
+<li><strong>Notes</strong> — short, focused pages: theory, commands, gotchas.<br />
+Start here: <strong><a href="./notes/README.html">notes/README.md</a></strong></li>
+<li><strong>Writeups</strong> — full walkthroughs for TryHackMe, Root-Me, FCSC, etc.<br />
+Start here: <strong><a href="./writeups/README.html">writeups/README.md</a></strong></li>
+<li><strong>References</strong> — tools I reuse, shell snippets, bibliography.<br />
+Start here: <strong><a href="./references/README.html">references/README.md</a></strong></li>
+</ul>
+<p>If search is enabled (<code>mdbook-search</code>), use the 🔍 bar to jump to commands or error strings.</p>
+<hr />
+<h2 id="homelab-snapshot"><a class="header" href="#homelab-snapshot">Homelab snapshot</a></h2>
+<p align="center">
+  <!-- Drop your diagram at: src/assets/homelab.png -->
+  <img src="./assets/homelab.png" alt="Homelab diagram" width="720">
+</p>
+<ul>
+<li>Segmented services (Pi-hole, Vaultwarden, Nextcloud AIO, Jellyfin, SIEMini).</li>
+<li>LXC + Docker Compose + Ansible for repeatability.</li>
+<li>Logs routed to a mini-SIEM (Snort3, Syslog-NG, Elastic/Kibana).</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
 
+                            <a rel="next prefetch" href="notes/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -190,10 +252,29 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
 
+                    <a rel="next prefetch" href="notes/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

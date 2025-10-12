@@ -2,7 +2,16 @@
 authors = ["ruohao"]
 language = "en"
 src = "src"
-title = "Notes"
+title = "Ruohao's Cyber Notes & Writeups"
 
 [build]
 build-dir = "docs"
+
+[output.html.fold]
+enable = true
+
+[preprocessor.tagger]
+command = "mdbook-tagger"
+
+# [preprocessor.wikilinks]
+# command = "scripts/wikilinks.sh"

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Notes</title>
+        <title>Ruohao&#x27;s Cyber Notes &amp; Writeups</title>
         <meta name="robots" content="noindex">
 
 
@@ -139,7 +139,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">Notes</h1>
+                    <h1 class="menu-title">Ruohao&#x27;s Cyber Notes &amp; Writeups</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -176,7 +176,155 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+                        <!-- --- -->
+<!-- # Keep front-matter minimal; tags here are optional if you use mdbook-tags -->
+<!-- title: "Welcome" -->
+<!-- --- -->
+<!-- Hero / Title -->
+<h1 align="center">🛡️ My Cyber Notebook</h1>
+<p align="center">
+  Notes, references, and CTF writeups — stitched together with curiosity, reproducibility, and a mildly unhealthy love for automation.
+</p>
+<!-- Badges -->
+<p align="center">
+  <a href="https://github.com/Ruohao1"><img alt="GitHub"
+     src="https://img.shields.io/badge/GitHub-Ruohao1-black?logo=github"></a>
+  <a href="https://tryhackme.com/p/ruohao"><img alt="TryHackMe"
+     src="https://img.shields.io/badge/TryHackMe-ruohao-darkred?logo=tryhackme"></a>
+  <a href="https://linkedin.com/in/ruohaolin"><img alt="LinkedIn"
+     src="https://img.shields.io/badge/LinkedIn-ruohaolin-0A66C2?logo=linkedin"></a>
+  <a href="https://ruohao.dev"><img alt="Portfolio"
+     src="https://img.shields.io/badge/Portfolio-ruohao.dev-111111?logo=vercel"></a>
+</p>
+<!-- Quick links / CTA -->
+<p align="center">
+  <a href="./notes/README.html"><b>Browse Notes</b></a> •
+  <a href="./writeups/README.html"><b>See Writeups</b></a> •
+  <a href="./references/README.html"><b>Reference Hub</b></a>
+</p>
+<hr />
+<h2 id="what-this-is"><a class="header" href="#what-this-is">What this is</a></h2>
+<p>This book is a growing collection of <strong>concise notes</strong>, <strong>repeatable configs</strong>, and <strong>step-by-step writeups</strong> from my work in:</p>
+<ul>
+<li>Linux hardening &amp; privesc, network forensics, web exploitation, and reversing.</li>
+<li>My homelab (Proxmox + LXC/Docker, segmented networks, Tailscale, TLS).</li>
+<li>Ansible roles/playbooks for CIS/ANSSI-style hardening and lab automation.</li>
+</ul>
+<p>Where helpful, pages are tagged (e.g., <code>linux</code>, <code>privesc</code>, <code>web</code>, <code>pwn</code>, <code>ansible</code>). If you have <code>mdbook-tags</code> enabled, you’ll get automatic tag indexes under <code>/tags/…</code>.</p>
+<blockquote>
+<p><em>“Document what you break, so you can break it better next time.”</em></p>
+</blockquote>
+<hr />
+<h2 id="structure"><a class="header" href="#structure">Structure</a></h2>
+<ul>
+<li><strong>Notes</strong> — short, focused pages: theory, commands, gotchas.<br />
+Start here: <strong><a href="./notes/README.html">notes/README.md</a></strong></li>
+<li><strong>Writeups</strong> — full walkthroughs for TryHackMe, Root-Me, FCSC, etc.<br />
+Start here: <strong><a href="./writeups/README.html">writeups/README.md</a></strong></li>
+<li><strong>References</strong> — tools I reuse, shell snippets, bibliography.<br />
+Start here: <strong><a href="./references/README.html">references/README.md</a></strong></li>
+</ul>
+<p>If search is enabled (<code>mdbook-search</code>), use the 🔍 bar to jump to commands or error strings.</p>
+<hr />
+<h2 id="homelab-snapshot"><a class="header" href="#homelab-snapshot">Homelab snapshot</a></h2>
+<p align="center">
+  <!-- Drop your diagram at: src/assets/homelab.png -->
+  <img src="./assets/homelab.png" alt="Homelab diagram" width="720">
+</p>
+<ul>
+<li>Segmented services (Pi-hole, Vaultwarden, Nextcloud AIO, Jellyfin, SIEMini).</li>
+<li>LXC + Docker Compose + Ansible for repeatability.</li>
+<li>Logs routed to a mini-SIEM (Snort3, Syslog-NG, Elastic/Kibana).</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><!-- --- -->
+<!-- title: "Notes" -->
+<!-- --- -->
+<!---->
+<h1 align="center">🛡️ Notes</h1>
+<p>This section is my <strong>technical notebook</strong> — a living collection of what I learn, test, and refine across cybersecurity, system administration, and software engineering.</p>
+<hr />
+<p>I use these notes to:</p>
+<ul>
+<li>Consolidate fragmented knowledge from CTFs, labs, and courses.</li>
+<li>Record useful commands, configurations, and short explanations.</li>
+<li>Bridge concepts between offensive, defensive, and operational security.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="linux"><a class="header" href="#linux">Linux</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="permissions"><a class="header" href="#permissions">Permissions</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="networking"><a class="header" href="#networking">Networking</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hardening"><a class="header" href="#hardening">Hardening</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="web"><a class="header" href="#web">Web</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-injection"><a class="header" href="#sql-injection">SQL Injection</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="xss"><a class="header" href="#xss">XSS</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="jwt"><a class="header" href="#jwt">JWT</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reverse-engineering"><a class="header" href="#reverse-engineering">Reverse Engineering</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ghidra"><a class="header" href="#ghidra">Ghidra</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pwntools"><a class="header" href="#pwntools">Pwntools</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="shellcode"><a class="header" href="#shellcode">Shellcode</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="writeups"><a class="header" href="#writeups">Writeups</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tryhackme"><a class="header" href="#tryhackme">TryHackMe</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="task-2"><a class="header" href="#task-2">Task 2</a></h2>
+<pre><code class="language-bash">echo "VEhNe2p1NTdfZDNjMGQzXzdoM19iNDUzfQ==" | base64 -d
+THM{ju57_d3c0d3_7h3_b453}
+</code></pre>
+<h2 id="task-3"><a class="header" href="#task-3">Task 3</a></h2>
+<pre><code class="language-bash">exiftool Find_me_1577975566801.jpg | grep THM
+Owner Name                      : THM{3x1f_0r_3x17}
+</code></pre>
+<h2 id="task-4"><a class="header" href="#task-4">Task 4</a></h2>
+<pre><code class="language-bash">steghide extract -sf Extinction_1577976250757.jpg 
+stegseek Extinction_1577976250757.jpg /usr/share/wordlists/rockyou.txt.gz
+cat Extinction_1577976250757.jpg.out
+It going to be over soon. Sleep my child.
+
+THM{500n3r_0r_l473r_17_15_0ur_7urn}
+</code></pre>
+<h2 id="task-5"><a class="header" href="#task-5">Task 5</a></h2>
+<p>Litteraly in the question</p>
+<pre><code>THM{wh173_fl46}
+</code></pre>
+<h2 id="task-6"><a class="header" href="#task-6">Task 6</a></h2>
+<p>Just scan the qr code</p>
+<pre><code>THM{qr_m4k3_l1f3_345y}
+</code></pre>
+<h2 id="task-7"><a class="header" href="#task-7">Task 7</a></h2>
+<pre><code class="language-bash">strings hello_1577977122465.hello | grep THM
+THM{345y_f1nd_345y_60}
+</code></pre>
+<h3 id="alternatively"><a class="header" href="#alternatively">Alternatively</a></h3>
+<p>Open the binary with ghidra</p>
+<p><img src="writeups/tryhackme/CTF%20collection%20Vol.1/./images/ghidra.png" alt="" /></p>
+<h2 id="task-8"><a class="header" href="#task-8">Task 8</a></h2>
+<pre><code class="language-bash">echo 3agrSy1CewF9v8ukcSkPSYm3oKUoByUpKG4L | base58 -d
+THM{17_h45_l3553r_l3773r5}
+</code></pre>
+<h3 id="alternatively-1"><a class="header" href="#alternatively-1">Alternatively</a></h3>
+<p>Use cyberchef's magic tool to found out</p>
+<p><img src="writeups/tryhackme/CTF%20collection%20Vol.1/images/cyberchef_base58.png" alt="" /></p>
+<h2 id="task-9"><a class="header" href="#task-9">Task 9</a></h2>
+<p>ROT 7
+<a href="https://github.com/Ruohao1/cypher-cracker">cypher-cracker</a></p>
+<pre><code class="language-bash">PYTHONPATH=src/ python -m src.cli --caesar "MAF{atbe_max_vtxltk}"
+
+k=19 score=-43.60 -&gt; THM{hail_the_caesar}
+</code></pre>
+<h2 id="task-10"><a class="header" href="#task-10">Task 10</a></h2>
+<p>Inspect the element
+<img src="writeups/tryhackme/CTF%20collection%20Vol.1/element.png" alt="" /></p>
+<h2 id="task-11"><a class="header" href="#task-11">Task 11</a></h2>
+<pre><code class="language-bash">cp spoil_157979329740.png fixed.png
+printf '\x89\x50\x4E\x47' | dd of=fixed.png bs=1 seek=0 count=4 conv=notrunc
+</code></pre>
+<p><img src="writeups/tryhackme/CTF%20collection%20Vol.1/images/fixed.png" alt="" /></p>
+<h2 id="task-12"><a class="header" href="#task-12">Task 12</a></h2>
+<p><a href="https://www.reddit.com/r/tryhackme/comments/eizxaq/new_room_coming_soon/">reddit</a>
+<img src="writeups/tryhackme/CTF%20collection%20Vol.1/images/reddit.png" alt="" /></p>
+<h2 id="task-13"><a class="header" href="#task-13">Task 13</a></h2>
+<p><img src="writeups/tryhackme/CTF%20collection%20Vol.1/brainfuck.png" alt="" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="references"><a class="header" href="#references">References</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tools"><a class="header" href="#tools">Tools</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="command-cheatsheet"><a class="header" href="#command-cheatsheet">Command Cheatsheet</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bibliography"><a class="header" href="#bibliography">Bibliography</a></h1>
 
                     </main>
 
@@ -195,6 +343,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
