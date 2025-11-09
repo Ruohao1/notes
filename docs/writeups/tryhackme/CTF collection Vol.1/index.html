@@ -175,127 +175,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="task-2"><a class="header" href="#task-2">Task 2</a></h2>
-<pre><code class="language-bash">echo "VEhNe2p1NTdfZDNjMGQzXzdoM19iNDUzfQ==" | base64 -d
-THM{ju57_d3c0d3_7h3_b453}
-</code></pre>
-<h2 id="task-3"><a class="header" href="#task-3">Task 3</a></h2>
-<pre><code class="language-bash">exiftool Find_me_1577975566801.jpg | grep THM
-Owner Name                      : THM{3x1f_0r_3x17}
-</code></pre>
-<h2 id="task-4"><a class="header" href="#task-4">Task 4</a></h2>
-<pre><code class="language-bash">steghide extract -sf Extinction_1577976250757.jpg 
-stegseek Extinction_1577976250757.jpg /usr/share/wordlists/rockyou.txt.gz
-cat Extinction_1577976250757.jpg.out
-It going to be over soon. Sleep my child.
-
-THM{500n3r_0r_l473r_17_15_0ur_7urn}
-</code></pre>
-<h2 id="task-5"><a class="header" href="#task-5">Task 5</a></h2>
-<p>Litteraly in the question</p>
-<pre><code>THM{wh173_fl46}
-</code></pre>
-<h2 id="task-6"><a class="header" href="#task-6">Task 6</a></h2>
-<p>Just scan the qr code</p>
-<pre><code>THM{qr_m4k3_l1f3_345y}
-</code></pre>
-<h2 id="task-7"><a class="header" href="#task-7">Task 7</a></h2>
-<pre><code class="language-bash">strings hello_1577977122465.hello | grep THM
-THM{345y_f1nd_345y_60}
-</code></pre>
-<h3 id="alternatively"><a class="header" href="#alternatively">Alternatively</a></h3>
-<p>Open the binary with ghidra</p>
-<p><img src="./images/ghidra.png" alt="" /></p>
-<h2 id="task-8"><a class="header" href="#task-8">Task 8</a></h2>
-<pre><code class="language-bash">echo 3agrSy1CewF9v8ukcSkPSYm3oKUoByUpKG4L | base58 -d
-THM{17_h45_l3553r_l3773r5}
-</code></pre>
-<h3 id="alternatively-1"><a class="header" href="#alternatively-1">Alternatively</a></h3>
-<p>Use cyberchef's magic tool to found out</p>
-<p><img src="images/cyberchef_base58.png" alt="" /></p>
-<h2 id="task-9"><a class="header" href="#task-9">Task 9</a></h2>
-<p>ROT 7
-<a href="https://github.com/Ruohao1/cypher-cracker">cypher-cracker</a></p>
-<pre><code class="language-bash">PYTHONPATH=src/ python -m src.cli --caesar "MAF{atbe_max_vtxltk}"
-
-k=19 score=-43.60 -&gt; THM{hail_the_caesar}
-</code></pre>
-<h2 id="task-10"><a class="header" href="#task-10">Task 10</a></h2>
-<p>Inspect the element
-<img src="element.png" alt="" /></p>
-<h2 id="task-11"><a class="header" href="#task-11">Task 11</a></h2>
-<pre><code class="language-bash">cp spoil_157979329740.png fixed.png
-printf '\x89\x50\x4E\x47' | dd of=fixed.png bs=1 seek=0 count=4 conv=notrunc
-</code></pre>
-<p><img src="images/fixed.png" alt="" /></p>
-<h2 id="task-12"><a class="header" href="#task-12">Task 12</a></h2>
-<p><a href="https://www.reddit.com/r/tryhackme/comments/eizxaq/new_room_coming_soon/">reddit</a>
-<img src="images/reddit.png" alt="" /></p>
-<h2 id="task-13"><a class="header" href="#task-13">Task 13</a></h2>
-<p><img src="brainfuck.png" alt="" /></p>
-<h2 id="task-14"><a class="header" href="#task-14">Task 14</a></h2>
-<pre><code class="language-python">s1 = bytes.fromhex("44585d6b2368737c65252166234f20626d")
-pt = bytes(b ^ 0x10 for b in s1)
-print(pt.decode())
-</code></pre>
-<h2 id="task-15"><a class="header" href="#task-15">Task 15</a></h2>
-<pre><code class="language-bash">binwalk hell_1578018688126.jpg -e
-cd _hell_1578018688127.jpg.extracted
-cat hello_there.txt
-Thank you for extracting me, you are the best!
-
-THM{y0u_w4lk_m3_0u7}
-</code></pre>
-<h2 id="task-16"><a class="header" href="#task-16">Task 16</a></h2>
-<pre><code class="language-python">import numpy as np
-from PIL import Image
-
-img = np.array(Image.open("dark.png"))
-lsb = img &amp; 1  # keep only least significant bit
-Image.fromarray((lsb[:,:,0]*255).astype(np.uint8)).save("lsb_r.png")
-Image.fromarray((lsb[:,:,1]*255).astype(np.uint8)).save("lsb_g.png")
-Image.fromarray((lsb[:,:,2]*255).astype(np.uint8)).save("lsb_b.png")
-</code></pre>
-<p>lsb_b
-<img src="images/dark.png" alt="" /></p>
-<h2 id="task-17"><a class="header" href="#task-17">Task 17</a></h2>
-<p>Just scan the qr and listen</p>
-<pre><code>THM{SOUNDINGQR}
-</code></pre>
-<h2 id="task-18"><a class="header" href="#task-18">Task 18</a></h2>
-<p>Use wayback machine on 2 jan 2020
-<img src="images/wayback.png" alt="" /></p>
-<h2 id="task-19"><a class="header" href="#task-19">Task 19</a></h2>
-<p><a href="https://github.com/Ruohao1/cypher-cracker">cypher-cracker</a></p>
-<pre><code class="language-bash">$ PYTHONPATH=src/ python -m src.cli --vigenere "MYKAHODTQ{RVG_YVGGK_FAL_WXF}" -k TRYHACKME
-Key provided: TRYHACKME
-Decrypted: THMTHMTHM{YEI_RVEWY_BHU_YQF}
-
-$ PYTHONPATH=src/ python -m src.cli --vigenere "MYKAHODTQ{RVG_YVGGK_FAL_WXF}" -k THM     
-Key provided: THM
-Decrypted: TRYHACKME{YOU_FOUND_THE_KEY}
-</code></pre>
-<h3 id="alternative"><a class="header" href="#alternative">Alternative</a></h3>
-<p>![[vigenere.png]]</p>
-<h2 id="task-20"><a class="header" href="#task-20">Task 20</a></h2>
-<pre><code class="language-bash">python -c 'n=int("581695969015253365094191591547859387620042736036246486373595515576333693");print(n.to_bytes((n.bit_length()+7)//8,"big").decode())'
-
-THM{17_ju57_4n_0rd1n4ry_b4535}
-</code></pre>
-<h2 id="task-21"><a class="header" href="#task-21">Task 21</a></h2>
-<pre><code class="language-bash">$ tshark -r flag_1578026731881.pcapng -Y http.request -T fields -e tcp.stream -e http.request.uri
-27	/
-29	/
-27	/
-27	/
-29	/
-42	/flag.txt
-
-$ tshark -r flag_1578026731881.pcapng -Y "tcp.stream==42 &amp;&amp; tcp" -T fields -e http.file_data | xxd -r -p | strings
-
-THM{d0_n07_574lk_m3}
-Found me!
-</code></pre>
+                        <h1 id="ctf-collection-vol1"><a class="header" href="#ctf-collection-vol1">CTF collection Vol.1</a></h1>
 
                     </main>
 
@@ -305,7 +185,7 @@ Found me!
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../../../references/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../../writeups/tryhackme/CTF collection Vol.2/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -319,7 +199,7 @@ Found me!
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../../../references/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../../writeups/tryhackme/CTF collection Vol.2/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
