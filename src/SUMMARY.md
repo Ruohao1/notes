@@ -19,6 +19,8 @@
 - [Writeups](writeups/README.md)
   - [TryHackMe](writeups/tryhackme/README.md)
     - [CTF collection Vol.1](writeups/tryhackme/CTF%20collection%20Vol.1/README.md)
+    - [CTF collection Vol.2](writeups/tryhackme/CTF%20collection%20Vol.2/README.md)
+    - [Wonderland](writeups/tryhackme/Wonderland/README.md)
 
 - [References](references/README.md)
   - [Tools](references/tools.md)
