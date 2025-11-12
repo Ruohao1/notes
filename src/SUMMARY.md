@@ -20,6 +20,7 @@
   - [TryHackMe](writeups/tryhackme/README.md)
     - [Wonderland](writeups/tryhackme/Wonderland/README.md)
     - [dogcat](writeups/tryhackme/dogcat/README.md)
+    - [UltraTech](writeups/tryhackme/UltraTech/README.md)
 
 - [References](references/README.md)
   - [Tools](references/tools.md)
